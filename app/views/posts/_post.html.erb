@@ -1,0 +1,12 @@
+<div class="post" data-id="<%= post.id %>">
+  <h1> <%= post.title %> </h1>
+  <h3> <%= post.subtitle %> </h3>
+  <div>
+    <%= simple_format(post.content) %>
+  </div>
+  <div>
+    <p class="tag-text" style="diplay:inline;">
+      [<%= post.created_at %>]
+    </p>
+  </div>
+</div>

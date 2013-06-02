@@ -1,0 +1,10 @@
+<div class="new-post">
+  <h2> New Post </h2>
+  <%= form_for @post, :html => {:class => "pure-form pure-g pure-form-stacked"} do |f| %>
+    <%= f.text_field :title, :class => "pure-u-1-2 post-header", :placeholder => "Title" %><br>
+    <%= f.text_field :subtitle, :class => "pure-u-1-2 post-header", :placeholder => "Subtitle" %><br>
+    <%= f.text_field :tagline, :class => "pure-u-1-2", :placeholder => "Tags (Seperate with comma)" %><br>
+    <textarea placeholder="Content" name="post[content]" data-widearea="enable" style="width: 97%" rows="12"></textarea><br>
+    <%= f.submit "Create Post", :class => "pure-button" %>
+  <% end %>
+</div>
