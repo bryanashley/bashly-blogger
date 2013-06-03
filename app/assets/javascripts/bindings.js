@@ -8,7 +8,15 @@ Bashly = {
         init: function() {
             // posts controller-wide code
             $(document).ready(function(){
-                $("figure.kudo").kudoable();
+                
+                $.each($("figure.kudo"), function(index, element){
+                    var postID = $(element).data("id");
+                    if($.cookie(""+postID) == "kodoed"){
+                        $(element).addClass("complete");   
+                    }else{
+                        $(element).kudoable()
+                    }
+                });
                 $("figure.kudo").on("kudo:added", function(event){
                     var element = $(this);
                     var postID = element.data('id');
@@ -20,6 +28,8 @@ Bashly = {
                         data: {
                             post_id: postID
                         }
+                    }).done(function(data){
+                        $.cookie(data.kudo.post_id, 'kodoed');
                     });                   
                 });
             });

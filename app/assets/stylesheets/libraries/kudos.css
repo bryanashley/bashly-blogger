@@ -41,6 +41,8 @@ div.opening div.circle{
 figure.kudo{
   text-align:center;
   margin-top: 24px;
+  height:100px;
+  width:100px;
 }
 /*figure.kudo article a.kudobject p{text-align:center;display:block;margin:0;padding:0;line-height:50px;width:auto;height:auto}*/
 

@@ -1,17 +1,18 @@
-<div class="post pure-g">
-  <div class="pure-u-4-5" style="float:left;">
+<hr>
+<div class="post" style="position: relative;">
+  <div class="post-content" style="width: 90%;">
     <h1> <%= post.title %> </h1>
     <h3> <%= post.subtitle %> </h3>
     <div>
       <%= simple_format(post.content) %>
     </div>
     <div>
-      <p class="tag-text" style="diplay:inline;">
+      <p class="tag-text" style="diplay:inline; position: absolute; bottom: 0px; right: 0px; ">
         [<%= post.created_at %>]
       </p>
     </div>
   </div>
-  <figure class="kudo kudoable pure-u-1-5" data-id="<%= post.id %>" data-url="<%= kudos_path() %>">
+  <figure class="kudo kudoable" data-id="<%= post.id %>" data-url="<%= kudos_path() %>" style="position: absolute; top: 0px; right: 0px;">
     <a class="kudobject">
         <div class="opening">
             <div class="circle">&nbsp;</div>
