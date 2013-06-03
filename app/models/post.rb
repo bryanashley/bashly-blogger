@@ -1,6 +1,7 @@
 class Post < ActiveRecord::Base
   belongs_to :user
-
+  has_many :kudos
+  
   attr_accessor :tagline
   validates_presence_of :content, :subtitle, :title, :tagline
   before_create :form_tags
