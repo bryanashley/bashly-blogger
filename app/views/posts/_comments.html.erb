@@ -1,0 +1,14 @@
+<h2> Comments </h2>
+<div class="comments-index">
+  <% post.comments.each do |comment| %>
+    <%= render "comment", comment: comment %>
+  <% end %>
+</div>
+<div class="comment-form">
+  <p> Add Comment </p>
+  <%= form_for [post, post.comments.build], :html => {:class => "pure-form"} do |f| %>
+    <%= f.text_field :author, :class => "comment-author", :placeholder => "Email" %>
+    <%= f.text_field :content, :class => "comment-content", :placeholder => "Comment", :style => "width: 65%" %>
+    <%= f.submit "Post Comment", :class => "create-post" %>
+  <% end %>
+</div>

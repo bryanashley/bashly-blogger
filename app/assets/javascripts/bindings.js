@@ -32,11 +32,46 @@ Bashly = {
                         $.cookie(data.kudo.post_id, 'kodoed');
                     });                   
                 });
+                $(".search-bashly").on("click", function(){
+                    $(".search-input").css("visibility", "visible").css("width", "200px");
+                });
+                $(".search-input").on("focusout", function(){
+                    $(this).css("width", "0px").css("visibility", "hidden");  
+                });
             });
         },
         new: function() {
             //Enable widearea for post content
             wideArea();
+        },
+        show: function() {
+            $(".create-post").on("click", function(e){
+                e.preventDefault();
+                var url = $(this).parents("form").attr("action");
+                $.ajax({
+                    type: "POST",
+                    dataType: "json",
+                    url: url,
+                    data: {
+                        comment: {
+                            author: $(".comment-author").val(),
+                            content: $(".comment-content").val()
+                        }
+                    }
+                }).done(function(data){
+                    if(data.success){
+                        $(".comments-index").prepend(data.partial);
+                    }else{
+                        if($.trim($(".comment-author").val()).length == 0){
+                            $(".comment-author").addClass("error");
+                        }
+                        if($.trim($(".comment-content").val()).length == 0){
+                            $(".comment-content").addClass("error");
+                        }
+                    }
+                });
+
+            });
         }
     }
 

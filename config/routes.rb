@@ -3,7 +3,9 @@ Bashly::Application.routes.draw do
   get "login" => "sessions#new", :as => "log_in"
   root :to => "posts#index"
   resources :sessions
-  resources :posts, :only => [:new, :create, :index, :show]
+  resources :posts, :only => [:new, :create, :index, :show] do
+    resources :comments, :only => [:create]
+  end
   resources :kudos, :only => [:create]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

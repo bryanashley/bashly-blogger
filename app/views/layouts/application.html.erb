@@ -4,6 +4,7 @@
   <title>bash.ly</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.1.0/pure-min.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
@@ -11,7 +12,8 @@
 <body data-controller="<%= controller_name %>" data-action="<%= action_name %>">
   <div class="pure-g-r">
     <div class="pure-u-1-4 sidebar">
-      <img class="avatar" src="https://en.gravatar.com/userimage/31426901/2bf5acf73555dab6902ff6c82faa394d.jpg?size=250"/>
+      <a href="<%= root_path() %>">
+      <img class="avatar" src="https://en.gravatar.com/userimage/31426901/2bf5acf73555dab6902ff6c82faa394d.jpg?size=250"/></a>
       <div class="title-content">
         <h1>bash.ly</h1>
         <h3>bryanashley's personal blog</h3>
@@ -19,9 +21,10 @@
           <h3><a href="http://github.com/bryanashley" target="_blank">[github]</a></h3>
           <h3><a href="http://twitter.com/Bash_BA" target="_blank">[twitter]</a></h3>
           <h3><a href="mailto:bryan.ashley@bashley.net" >[contact]</a></h3>
-          <form class="pure-form">
-            <input type="search" placeholder="Search">
-          </form>
+          <div style="position: relative;">
+            <i class="search-bashly icon-search icon-large"></i>
+            <input class="search-input" placeholder="Full Text Search" type="text">
+          </div>
         </div>
       </div>
     </div>
