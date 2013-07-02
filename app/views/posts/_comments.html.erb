@@ -1,6 +1,6 @@
 <h2> Comments </h2>
 <div class="comments-index">
-  <% post.comments.each do |comment| %>
+  <% post.comments.reverse.each do |comment| %>
     <%= render "comment", comment: comment %>
   <% end %>
 </div>

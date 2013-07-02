@@ -2,6 +2,7 @@ Bashly = {
     common: {
         init: function() {
             // application-wide code
+            faye = new Faye.Client('http://localhost:9292/faye');
         }
     }, 
     posts: {
@@ -59,8 +60,9 @@ Bashly = {
                         }
                     }
                 }).done(function(data){
-                    if(data.success){
-                        $(".comments-index").prepend(data.partial);
+                    if(data.success){ 
+                        $(".comment-author").val("");
+                        $(".comment-content").val("");
                     }else{
                         if($.trim($(".comment-author").val()).length == 0){
                             $(".comment-author").addClass("error");
@@ -70,7 +72,10 @@ Bashly = {
                         }
                     }
                 });
-
+            });
+            var channel = "/comments/"+$(".post").data("id");
+            faye.subscribe(channel, function(data) {
+                $(".comments-index").prepend(data.partial);
             });
         }
     }

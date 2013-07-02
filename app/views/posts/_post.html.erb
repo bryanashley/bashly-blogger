@@ -1,15 +1,10 @@
 <hr>
-<div class="post" style="position: relative;">
+<div class="post" style="position: relative;" data-id="<%= post.id %>">
   <div class="post-content" style="width: 90%;">
     <h1> <a href="<%= post_path(post) %>" ><%= post.title %></a> </h1>
     <h3> <%= post.subtitle %> </h3>
     <div>
       <%= simple_format(post.content) %>
-    </div>
-    <div>
-      <p class="tag-text" style="diplay:inline; position: absolute; bottom: 0px; right: 0px; ">
-        [<%= post.created_at.to_date %>]
-      </p>
     </div>
   </div>
   <figure class="kudo kudoable" data-id="<%= post.id %>" data-url="<%= kudos_path() %>" style="position: absolute; top: 0px; right: 0px;">
@@ -23,4 +18,16 @@
         <span class="txt">Kudos</span>
     </a>
   </figure>
+  <div>
+    <p class="tag-text">
+      [
+        <% post.tags.each do |tag| %>
+          <%= tag %>
+        <% end %>
+      ]
+    </p>
+    <p class="tag-text date">
+      [<%= post.created_at.to_date %>]
+    </p>
+  </div>
 </div>
