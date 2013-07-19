@@ -198,9 +198,6 @@ a:focus {
 .comment-show{
   border-top: 1px solid #aaa;
   .pure-avatar{
-    float: left;
-    margin-right: 10px;
-    border-radius: 24px;
     margin-top: 15px;
   }
 
@@ -220,6 +217,11 @@ a:focus {
   text-decoration: none;
   color: #000;
 }
+.pure-avatar{
+    float: left;
+    margin-right: 10px;
+    border-radius: 24px;
+  }
 @media (max-width: 1020px) {
     .avatar{
       display: none;

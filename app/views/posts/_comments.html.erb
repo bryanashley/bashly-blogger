@@ -1,14 +1,17 @@
-<h2> Comments </h2>
-<div class="comments-index">
-  <% post.comments.reverse.each do |comment| %>
-    <%= render "comment", comment: comment %>
-  <% end %>
-</div>
+<% if post.comments.present? || current_commenter %>
+	<h2> Comments </h2>
+	<div class="comments-index">
+	  <% post.comments.reverse.each do |comment| %>
+	    <%= render "comment", comment: comment %>
+	  <% end %>
+	</div>
+<% end %>
 <% if current_commenter %>
 	<div class="comment-form">
 	  <p> Add Comment </p>
 	  <%= form_for [post, post.comments.build], :html => {:class => "pure-form"} do |f| %>
-	    <%= f.text_field :content, :class => "comment-content", :placeholder => "Comment", :style => "width: 64%" %>
+	  	<img class="pure-avatar" src="<%= current_commenter.avatar %>">
+	    <%= f.text_field :content, :class => "pure-input-rounded comment-content", :placeholder => "Comment", :style => "width: 64%" %>
 	    <%= f.submit "Post Comment", :class => "pure-button create-post" %>
 	  <% end %>
 	</div>
