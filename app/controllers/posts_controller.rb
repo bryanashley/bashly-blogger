@@ -2,9 +2,15 @@ class PostsController < ApplicationController
   before_filter :require_user, :except => [:index, :show]
 
   def index
-    @posts = Post.order("created_at desc").take(3)
+    if params.has_key?(:c)
+      @posts = Post.category(params[:c]).order("created_at desc")
+    elsif params.has_key?(:s)
+      @posts = Post.search_all(params[:s])
+    else
+      @posts = Post.order("created_at desc")
+    end
   end
-
+  
   def show
     @post = Post.find(params[:id])
   end

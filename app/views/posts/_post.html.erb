@@ -1,33 +1,30 @@
-<hr>
-<div class="post" style="position: relative;" data-id="<%= post.id %>">
-  <div class="post-content" style="width: 90%;">
-    <h1> <a href="<%= post_path(post) %>" ><%= post.title %></a> </h1>
-    <h3> <%= post.subtitle %> </h3>
-    <div>
-      <%= simple_format(post.content) %>
+<!-- A single blog post -->
+<h1 class="content-subhead"><%= post.created_at.to_date %></h1>
+<section class="post" data-id="<%= post.id %>">
+    <header class="post-header" style="position: relative;">
+        <figure class="kudo kudoable" data-id="<%= post.id %>" data-url="<%= kudos_path() %>" style="position: absolute;right: 0px; top: -35px;">
+          <a class="kudobject">
+              <div class="opening">
+                  <div class="circle">&nbsp;</div>
+              </div>
+          </a>
+          <a href="#kudo" class="count">
+              <span class="num"><%= post.kudos.count %></span>
+              <span class="txt">Kudos</span>
+          </a>
+        </figure>
+
+        <h2 class="post-title"><a href="<%= post_path(post) %>" ><%= post.title %></a></h2>
+
+        <p class="post-meta">
+            Categories: 
+            <% post.tags.each do |tag| %>
+              <a class="post-category post-category-color" href="<%= root_path(c: tag) %>"><%= tag %></a>
+            <% end %>
+        </p>
+    </header>
+
+    <div class="post-description">
+      <%= markdown(post.content) %>
     </div>
-  </div>
-  <figure class="kudo kudoable" data-id="<%= post.id %>" data-url="<%= kudos_path() %>" style="position: absolute; top: 0px; right: 0px;">
-    <a class="kudobject">
-        <div class="opening">
-            <div class="circle">&nbsp;</div>
-        </div>
-    </a>
-    <a href="#kudo" class="count">
-        <span class="num"><%= post.kudos.count %></span>
-        <span class="txt">Kudos</span>
-    </a>
-  </figure>
-  <div>
-    <p class="tag-text">
-      [
-        <% post.tags.each do |tag| %>
-          <%= tag %>
-        <% end %>
-      ]
-    </p>
-    <p class="tag-text date">
-      [<%= post.created_at.to_date %>]
-    </p>
-  </div>
-</div>
+</section>

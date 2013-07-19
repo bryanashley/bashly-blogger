@@ -6,6 +6,10 @@ gem 'rails', '4.0.0.rc1'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+# Markdown and syntax highlighting
+gem 'pygments.rb'
+gem 'redcarpet'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0.rc1'
 

@@ -8,7 +8,7 @@
   <p> Add Comment </p>
   <%= form_for [post, post.comments.build], :html => {:class => "pure-form"} do |f| %>
     <%= f.text_field :author, :class => "comment-author", :placeholder => "Email" %>
-    <%= f.text_field :content, :class => "comment-content", :placeholder => "Comment", :style => "width: 65%" %>
-    <%= f.submit "Post Comment", :class => "create-post" %>
+    <%= f.text_field :content, :class => "comment-content", :placeholder => "Comment", :style => "width: 64%" %>
+    <%= f.submit "Post Comment", :class => "pure-button create-post" %>
   <% end %>
 </div>

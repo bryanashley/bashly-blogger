@@ -78,6 +78,10 @@ GEM
     multi_json (1.7.5)
     pg (0.15.1)
     polyglot (0.3.3)
+    posix-spawn (0.3.6)
+    pygments.rb (0.5.1)
+      posix-spawn (~> 0.3.6)
+      yajl-ruby (~> 1.1.0)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -97,6 +101,7 @@ GEM
     rake (10.0.4)
     rdoc (3.12.2)
       json (~> 1.4)
+    redcarpet (2.3.0)
     sass (3.2.9)
     sass-rails (4.0.0.rc1)
       railties (>= 4.0.0.beta, < 5.0)
@@ -145,7 +150,9 @@ DEPENDENCIES
   jbuilder (~> 1.0.1)
   jquery-rails
   pg
+  pygments.rb
   rails (= 4.0.0.rc1)
+  redcarpet
   sass-rails (~> 4.0.0.rc1)
   sdoc
   thin

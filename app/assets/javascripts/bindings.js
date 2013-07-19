@@ -3,6 +3,16 @@ Bashly = {
         init: function() {
             // application-wide code
             faye = new Faye.Client('http://localhost:9292/faye');
+            $(".search-bashly").on("click", function(){
+                term = $(".search-input").val();
+                if(term.length > 0){
+                    window.location = "?s="+term;
+                }
+            });
+            $(".search-form").submit(function(event){
+                event.preventDefault();
+                $(".search-bashly").click();
+            });
         }
     }, 
     posts: {
@@ -32,12 +42,6 @@ Bashly = {
                     }).done(function(data){
                         $.cookie(data.kudo.post_id, 'kodoed');
                     });                   
-                });
-                $(".search-bashly").on("click", function(){
-                    $(".search-input").css("visibility", "visible").css("width", "200px");
-                });
-                $(".search-input").on("focusout", function(){
-                    $(this).css("width", "0px").css("visibility", "hidden");  
                 });
             });
         },
@@ -104,3 +108,4 @@ BUtil = {
 };
 
 $(document).ready( BUtil.init );
+$(document).on('page:load', BUtil.init)
