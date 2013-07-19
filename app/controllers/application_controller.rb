@@ -5,13 +5,17 @@ class ApplicationController < ActionController::Base
   
   helper :all 
 
-  helper_method :current_user, :require_user
+  helper_method :current_user, :require_user, :current_commenter
 
   def require_user
     redirect_to root_url unless current_user.present?
   end
 
   private
+
+  def current_commenter
+    @current_commenter ||= Commenter.find(session[:commenter_id]) if session[:commenter_id]
+  end
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]

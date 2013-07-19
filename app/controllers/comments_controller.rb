@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
   def create
     @comment = @post.comments.build(comment_params)
     if @comment.save
+      current_commenter.comments << @comment
       broadcast("/comments/#{@post.id}", partial: render_to_string("/posts/_comment.html.erb", :layout => false, :locals => {comment: @comment}),)
       render :json => {comment: @comment,  
                        success: true}
@@ -27,6 +28,6 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:author, :content)
+    params.require(:comment).permit(:content)
   end
 end

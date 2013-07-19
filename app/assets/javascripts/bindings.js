@@ -53,13 +53,13 @@ Bashly = {
             $(".create-post").on("click", function(e){
                 e.preventDefault();
                 var url = $(this).parents("form").attr("action");
+                console.log($(".comment-content").val());
                 $.ajax({
                     type: "POST",
                     dataType: "json",
                     url: url,
                     data: {
                         comment: {
-                            author: $(".comment-author").val(),
                             content: $(".comment-content").val()
                         }
                     }

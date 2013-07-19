@@ -4,11 +4,22 @@
     <%= render "comment", comment: comment %>
   <% end %>
 </div>
-<div class="comment-form">
-  <p> Add Comment </p>
-  <%= form_for [post, post.comments.build], :html => {:class => "pure-form"} do |f| %>
-    <%= f.text_field :author, :class => "comment-author", :placeholder => "Email" %>
-    <%= f.text_field :content, :class => "comment-content", :placeholder => "Comment", :style => "width: 64%" %>
-    <%= f.submit "Post Comment", :class => "pure-button create-post" %>
-  <% end %>
-</div>
+<% if current_commenter %>
+	<div class="comment-form">
+	  <p> Add Comment </p>
+	  <%= form_for [post, post.comments.build], :html => {:class => "pure-form"} do |f| %>
+	    <%= f.text_field :content, :class => "comment-content", :placeholder => "Comment", :style => "width: 64%" %>
+	    <%= f.submit "Post Comment", :class => "pure-button create-post" %>
+	  <% end %>
+	</div>
+<% else %>
+	<footer class="footer">
+		<div class="pure-menu pure-menu-horizontal pure-menu-open comment-form">
+			<ul style='vertical-align: middle'>
+				<li>
+					<h2> <a href="/auth/twitter" class="twitter-signin"><i class="icon-twitter"></i>Sign in with twitter to comment</a> </h2>
+				</li>
+			</ul>
+		</div>
+	</footer>
+<% end %>

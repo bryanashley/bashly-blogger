@@ -16,7 +16,9 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-
+.pure-image{
+  border-radius: 24px;
+}
 a {
     text-decoration: none;
     color: rgb(142, 142, 214);
@@ -189,7 +191,35 @@ a:focus {
     color: #FFBB00;
   }
 }
+.comment-form{
+  border-top: 1px solid #aaa;
+  margin-top: 15px;
+}
+.comment-show{
+  border-top: 1px solid #aaa;
+  .pure-avatar{
+    float: left;
+    margin-right: 10px;
+    border-radius: 24px;
+    margin-top: 15px;
+  }
 
+  .comment-contents{
+    p{
+      margin-top: -10px;
+      margin-left: 58px;
+    }
+      a{
+        text-decoration: none;
+        color: #000
+      }
+  }
+}
+.twitter-signin{
+  font-size: 0.7em;
+  text-decoration: none;
+  color: #000;
+}
 @media (max-width: 1020px) {
     .avatar{
       display: none;

@@ -2,6 +2,9 @@ Bashly::Application.routes.draw do
   get "logout" => "sessions#destroy", :as => "log_out"
   get "login" => "sessions#new", :as => "log_in"
   root :to => "posts#index"
+  match 'auth/:provider/callback', to: 'commenter_sessions#create', via: [:get, :post]
+  match 'auth/failure', to: redirect('/'), via: [:get, :post]
+  match '/signout', to: 'commenter_sessions#destroy', as: 'signout', via: :get
   resources :sessions
   resources :posts, :only => [:new, :create, :index, :show] do
     resources :comments, :only => [:create]
