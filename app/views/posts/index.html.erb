@@ -1,4 +1,11 @@
-<% @posts.each do |post| %>
-  <%= render "post", :post => post %>
-  <hr>
+<% if @posts.count > 0 %>
+	<!-- A wrapper for all the blog posts -->
+    <div class="posts">
+        <% @posts.each do |post| %>
+            <%= render "post", :post => post %>
+        <% end %>
+    </div>
+<% else %>
+	<p> No results found. </p>
 <% end %>
+

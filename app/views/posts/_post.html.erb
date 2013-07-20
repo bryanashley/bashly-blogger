@@ -1,12 +1,30 @@
-<div class="post" data-id="<%= post.id %>">
-  <h1> <%= post.title %> </h1>
-  <h3> <%= post.subtitle %> </h3>
-  <div>
-    <%= simple_format(post.content) %>
-  </div>
-  <div>
-    <p class="tag-text" style="diplay:inline;">
-      [<%= post.created_at %>]
-    </p>
-  </div>
-</div>
+<!-- A single blog post -->
+<h1 class="content-subhead"><%= post.created_at.to_date %></h1>
+<section class="post" data-id="<%= post.id %>">
+    <header class="post-header" style="position: relative;">
+        <figure class="kudo kudoable" data-id="<%= post.id %>" data-url="<%= kudos_path() %>" style="position: absolute;right: 0px; top: -35px;">
+          <a class="kudobject">
+              <div class="opening">
+                  <div class="circle">&nbsp;</div>
+              </div>
+          </a>
+          <a href="#kudo" class="count">
+              <span class="num"><%= post.kudos.count %></span>
+              <span class="txt">Kudos</span>
+          </a>
+        </figure>
+
+        <h2 class="post-title"><a href="<%= post_path(post) %>" ><%= post.title %></a></h2>
+
+        <p class="post-meta">
+            Categories: 
+            <% post.tags.each do |tag| %>
+              <a class="post-category post-category-color" href="<%= root_path(c: tag) %>"><%= tag %></a>
+            <% end %>
+        </p>
+    </header>
+
+    <div class="post-description">
+      <%= markdown(post.content) %>
+    </div>
+</section>

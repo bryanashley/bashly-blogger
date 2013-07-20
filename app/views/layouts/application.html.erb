@@ -1,32 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Bashly</title>
+  <title>bash.ly</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.1.0/pure-min.css">
-  <%= javascript_include_tag "application" %>
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.2.1/pure-min.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+  <%= javascript_include_tag "application", "http://localhost:9292/faye.js" %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
 </head>
-<body>
-  <div class="pure-g-r">
-    <div class="pure-u-1-4 sidebar">
-      <img class="avatar" src="https://en.gravatar.com/userimage/31426901/2bf5acf73555dab6902ff6c82faa394d.jpg?size=250"/>
-      <div class="title-content">
-        <h1>bash.ly</h1>
-        <h3>bryanashley's personal blog</h3>
-        <h3><a href="http://github.com/bryanashley" target="_blank" style="text-decoration:none; color:black">[github]</a></h3>
-        <h3><a href="http://twitter.com/Bash_BA" target="_blank" style="text-decoration:none; color:black">[twitter]</a></h3>
-        <h3><a href="mailto:bryan.ashley@bashley.net" style="text-decoration:none; color:black">[contact]</a></h3>
-        <form class="pure-form">
-          <input type="search" placeholder="Search">
-        </form>
-      </div>
+<body data-controller="<%= controller_name %>" data-action="<%= action_name %>">
+  <div class="pure-g-r" id="layout">
+    <div class="sidebar pure-u">
+        <header class="header">
+            <hgroup>
+                <h1 class="brand-title"><a href="<%= root_path() %>"> Bash.ly </a></h1>
+                <h2 class="brand-tagline">bryanashley's personal blog</h2>
+            </hgroup>
+
+            <nav class="nav">
+                <ul class="nav-list"><br>
+                    <li class="nav-item">
+                      <form class="pure-form search-form">
+                        <i class="search-bashly icon-search icon-large"></i>
+                        <input type="text" class="pure-input-rounded search-input" placeholder="Full Text Search">
+                      </form>
+                    </li>
+                </ul>
+            </nav>
+        </header>
     </div>
-    <div class="pure-u-3-5 blog-content">
-      <%= yield %>
+
+    <div class="pure-u-1">
+        <div class="content">
+          <%= yield %>
+
+          <footer class="footer">
+              <div class="pure-menu pure-menu-horizontal pure-menu-open">
+                  <ul>
+                      <li><a href="https://twitter.com/Bash_BA">Twitter</a></li>
+                      <li><a href="http://github.com/bryanashley/">Github</a></li>
+                  </ul>
+              </div>
+          </footer>
+        </div>
     </div>
-  </div>
+</div>
 
 
 </body>

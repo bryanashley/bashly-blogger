@@ -1,0 +1,11 @@
+<div class="comment-show">
+  <a href="<%= comment.commenter.url %>">
+    <img class="pure-avatar" src="<%= comment.commenter.avatar %>">
+  </a>
+  <section class="comment-contents">
+    <a href="<%= comment.commenter.url %>">
+      <h3 class="comment-author">@<%= comment.commenter.name %></h3>
+    </a>
+    <p><%= comment.content %></p>
+  </section> 
+</div>
