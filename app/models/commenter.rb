@@ -6,12 +6,12 @@ class Commenter < ActiveRecord::Base
   end
 
   def self.create_from_omniauth(auth)
-    create! do |user|
-      user.url = auth["info"]["urls"]["Twitter"]
-      user.avatar = auth["info"]["image"]
-      user.provider = auth["provider"]
-      user.uid = auth["uid"]
-      user.name = auth["info"]["nickname"]
+    create! do |commenter|
+      commenter.url = auth["info"]["urls"]["Twitter"]
+      commenter.avatar = auth["info"]["image"]
+      commenter.provider = auth["provider"]
+      commenter.uid = auth["uid"]
+      commenter.name = auth["info"]["nickname"]
     end
   end
 
