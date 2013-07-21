@@ -14,8 +14,7 @@
           </a>
         </figure>
 
-        <h2 class="post-title"><a href="<%= post_path(post) %>" ><%= post.title %></a></h2>
-
+        <h2 class="post-title"><a href="<%= post_path(post) %>" ><%= post.title %></a> [<%= post.subtitle %>]</h2>
         <p class="post-meta">
             Categories: 
             <% post.tags.each do |tag| %>
