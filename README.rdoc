@@ -1,28 +1,38 @@
-== README
+== Bashly-Blogger README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Bashly-Blogger is a basic blogging engine. 
 
-Things you may want to cover:
+== Dependencies 
+Bashly-blogger uses: 
+* Rails 4.0
+* Ruby 2.0
+* Postgresql
 
-* Ruby version
+== To Use
+To use bashly-blogger simply:
 
-* System dependencies
+* clone the repo
+* rake db:setup
+* create a user in database (No public routes for signing up as it is not an action that should happen more than once)
 
-* Configuration
+To start posting: 
 
-* Database creation
+* Login at /login 
+* Create a new post at /posts/new
 
-* Database initialization
+== Starting the server
 
-* How to run the test suite
+To start bashly-blogger, you must start both the rails server and faye
 
-* Services (job queues, cache servers, search engines, etc.)
+* rails s
+* rackup faye.ru -s thin -E production
 
-* Deployment instructions
+== Libraries and external resources
 
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* Faye (websockets for commenting) - http://faye.jcoglan.com/
+* omniauth (Twitter auth used to comment on posts) - http://omniauth.org/
+* Purecss.io - http://purecss.io
+* widearea.js (For creating posts) - http://usablica.github.io/widearea/
+* redcarpet for markdown support - https://github.com/vmg/redcarpet
+* pygments for syntax highlighting - https://github.com/tmm1/pygments.rb
+* kudos (awesome way to show you like a post) - https://github.com/masukomi/kudos
