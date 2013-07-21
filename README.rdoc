@@ -12,6 +12,7 @@ Bashly-blogger uses:
 To use bashly-blogger simply:
 
 * clone the repo
+* bundle install
 * rake db:setup
 * create a user in database (No public routes for signing up as it is not an action that should happen more than once)
 
