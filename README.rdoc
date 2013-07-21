@@ -36,3 +36,7 @@ To start bashly-blogger, you must start both the rails server and faye
 * redcarpet for markdown support - https://github.com/vmg/redcarpet
 * pygments for syntax highlighting - https://github.com/tmm1/pygments.rb
 * kudos (awesome way to show you like a post) - https://github.com/masukomi/kudos
+
+== Copyright and Licensing
+Copyright (c) 2013 Bryan Ashley, released under the MIT license.
+
